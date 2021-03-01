@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
-import postSite from '../../services/siteServices'
+import postSite from '../../Services/siteService'
 
 const AddSite = () => {
+  const clientID = localStorage.clientID
   const initialSiteState = {
     id: null,
     site_name: "",
-    submitted: false
+    _parent_id: clientID
   }
 
   const [site, setSite] = useState(initialSiteState)
@@ -16,14 +17,15 @@ const AddSite = () => {
     setClient({...client, [name]: value})
   }
 
+console.log(initialSiteState)
   const saveSite = async () => {
     var data = {site}
   
 
-  const {data} = await postSite(data)
+  const {response} = await postSite(data)
     
       setSubmitted(true)
-      console.log(data)
+      console.log(response)
     
   }
 

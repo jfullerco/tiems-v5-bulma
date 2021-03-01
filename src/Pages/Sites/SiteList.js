@@ -19,7 +19,7 @@ const SiteList = () => {
         </div>
     
     <div className="block">
-    
+    <Link to="/addSite">Add Site</Link>
     {sites != !sites ? sites.map(site => (
        <span key={site._id}>
         <Link to={`/sites/${site._id}`}>

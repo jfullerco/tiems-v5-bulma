@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
 import SiteList from './Pages/Sites/SiteList'
 import SiteDetail from './Pages/Sites/SiteDetail'
+import AddSite from './Pages/Sites/AddSite'
 
 import LogoutButton from './Components/LogoutButton'
 
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/login" component={Login} />
             <Route exact path="/sites" component={SiteList} />
             <Route path="/sites/:id" component={SiteDetail} />
+            <Route path="/addSite" component={AddSite} />
 
           </Switch>
         </div>  
