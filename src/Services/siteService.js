@@ -8,7 +8,9 @@ const getSite = async (id) => {
 }
 
 const postSite = async (id, data) => {
+
   return await http.post(`/rest/clients/${id}/sites`, data)
+  
 }
 
 export default getSite
