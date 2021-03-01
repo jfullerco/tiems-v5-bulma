@@ -9,27 +9,27 @@ const SiteList = () => {
     
   return (
     <>
-    <div className="row">
+    <div className="block">
       <h5>Site List</h5>
     </div>
     
-    <div className="row">
-    <div className="four columns">
+    <div className="block">
     
     {sites != !sites ? sites.map(site => (
        <span key={site._id}>
         <Link to={`/sites/${site._id}`}>
-        <div className="button">{site.site_name}</div>
+        <div className="button is-rounded">{site.site_name}</div>
         </Link>
        </span>
       )
     ) : (
-      <div className="button">
-          <span className="error">No sites found</span>
+      <span>
+      <div className="button is-rounded is-danger">
+          No sites found
       </div>
+      </span>
     )}
     
-    </div>
     </div>
     </>
   )
