@@ -29,9 +29,9 @@ const SiteList = () => {
       )
     ) : (
       <span>
-      <div className="button is-rounded is-danger">
-          No sites found
-      </div>
+        <div className="button is-rounded is-danger is-loading">
+            No sites found
+        </div>
       </span>
     )}
     
