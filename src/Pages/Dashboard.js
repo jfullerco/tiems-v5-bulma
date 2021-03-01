@@ -33,8 +33,13 @@ console.log(userContext.sessionData)
     <>  
       {(localStorage.LoggedIn === "true") ? (  
       <> 
-        <div className="block">
-          <h5>Dashboard</h5>
+       <div className="block"> 
+        <section className="hero is-info">
+        <div className="hero-body">
+          <p className="title">Dashboard</p>
+        <div className="subtitle"></div>
+        </div>
+        </section>
         </div>
         
         <div className="block">

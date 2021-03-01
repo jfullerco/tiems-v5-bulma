@@ -16,7 +16,7 @@ const AssetList = ({id}) => {
   }
 
   return (
-    <table className="u-full-width">
+    <table className="table is-striped is-fullwidth">
       <thead>
         <tr>
           <th>

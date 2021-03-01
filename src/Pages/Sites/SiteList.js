@@ -9,9 +9,14 @@ const SiteList = () => {
     
   return (
     <>
-    <div className="block">
-      <h5>Site List</h5>
-    </div>
+    <div className="block"> 
+        <section className="hero is-info">
+        <div className="hero-body">
+          <p className="title">Sites</p>
+        <div className="subtitle"></div>
+        </div>
+        </section>
+        </div>
     
     <div className="block">
     
