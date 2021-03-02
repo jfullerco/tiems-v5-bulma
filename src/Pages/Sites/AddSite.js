@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {postSite} from '../../Services/siteService'
+import siteServices from '../../Services/siteService'
 
 const AddSite = () => {
   const id = localStorage.clientID
@@ -29,10 +29,10 @@ const AddSite = () => {
       site_add2: site.site_add2,
       site_city: site.site_city,
       site_state: site.site_state,
-      site_phone: null,
+      site_zip: site.site_zip,
       _parent_id: id
       }
-      await postSite(id, data)
+      await siteServices.postSite(id, data)
     
       setSubmitted(true)
       console.log()
