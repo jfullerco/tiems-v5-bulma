@@ -9,8 +9,8 @@ const getSite = async (id) => {
 
 const postSite = async (id, data) => {
 
-  return await http.post(`/rest/sites/${id}`, data)
+  return await http.post(`/rest/sites`, data)
 
 }
 
-export {getSite, postSite}
+export default {getSite, postSite}

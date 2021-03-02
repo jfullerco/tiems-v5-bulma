@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import getSite from '../../Services/siteService'
+import siteService from '../../Services/siteService'
 
 const AssetList = ({id}) => {
   console.log(id)
@@ -10,11 +10,11 @@ const AssetList = ({id}) => {
   }, [])
 
   const getAssets = async (id) => {
-    const {data: {site_assets}} = await getSite(id)
+    const {data: {site_assets}} = await siteService.getSite(id)
     setSiteAssets(site_assets)
-    console.log(site_assets)
+console.log()
   }
-
+  console.log(siteAssets)
   return (
     <table className="table is-striped is-fullwidth">
       <thead>
@@ -35,12 +35,12 @@ const AssetList = ({id}) => {
         </thead>
         <tbody>
         
-        {siteAssets ? siteAssets.map(asset => (
+        {siteAssets != !siteAssets ? siteAssets.map(asset => (
           <tr key={asset._id}>
-            <td>{asset.assetID}</td>
-            <td>{asset.assetVendor}</td>
-            <td>{asset.assetType}</td>
-            <td>{asset.assetStatus}</td>
+            <td>{asset.asset_ID}</td>
+            <td>{asset.asset_Vendor}</td>
+            <td>{asset.asset_Type}</td>
+            <td>{asset.asset_Status}</td>
           </tr>
         )) : (
           "Assets loading"
