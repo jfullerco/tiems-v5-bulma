@@ -20,7 +20,9 @@ const SiteList = () => {
     
     <div className="block">
     <div className="block">
-    <Link to="/addSite">Add Site</Link>
+      <div className="button is-rounded is-small">
+        <Link to="/addSite">Add Site</Link>
+      </div>
     </div>
     {sites != !sites ? sites.map(site => (
        <div className="block" key={site._id}>
