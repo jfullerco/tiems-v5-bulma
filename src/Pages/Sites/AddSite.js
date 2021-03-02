@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import postSite from '../../Services/siteService'
+import {postSite} from '../../Services/siteService'
 
 const AddSite = () => {
   const clientID = localStorage.clientID
@@ -14,15 +14,20 @@ const AddSite = () => {
 
   const handleInputChange = event => {
     const { name, value } = event.target
-    setClient({...client, [name]: value})
+    setSite({...site, [name]: value})
   }
 
 console.log(initialSiteState)
   const saveSite = async () => {
-    var data = {site}
+    var data = {
+      site_name: site.site_name,
+      site_add1: site.site_add1,
+      site_add2: site.site_add2,
+      _parent_id: clientID
+      }
   
 
-  const {response} = await postSite(data)
+  const response = await postSite(data)
     
       setSubmitted(true)
       console.log(response)
@@ -43,7 +48,7 @@ const newSite = () => {
         </div>
       ) : (
         <div className="form-group">
-          <label htmlFor="client_name">Site Name</label>
+          <label className="">Site Name</label>
           <input
             type="text"
             id="site_name"
