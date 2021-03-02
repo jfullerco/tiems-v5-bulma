@@ -4,6 +4,11 @@ import {stateContext} from '../stateContext'
 
 const LogoutButton = () => {
   const userContext = React.useContext(stateContext)
+
+  const logOut = () => {
+    localStorage.removeItem('LoggedIn')
+  }
+
   return (
     <div className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand"></div>
@@ -15,7 +20,7 @@ const LogoutButton = () => {
 
       <div className="navbar-end">  
             <Link to="/" className="navbar-item">Dashboard</Link>
-            <Link to="/" className="navbar-item">Logout</Link>
+            <Link to="/" onClick={logOut} className="navbar-item">Logout</Link>
       </div>
 
     </div>

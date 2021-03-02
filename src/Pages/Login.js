@@ -44,7 +44,7 @@ export default function Login() {
   }
 
   return(
-    <div className="column is-one-quarter">    
+    <div className="column is-half">    
           <div className="field">
           <div className="control">
           <input
@@ -53,7 +53,7 @@ export default function Login() {
             name="user"
             value={loginAttempt.user}
             onChange={handleInputChange}
-            className="input is-small is-rounded"
+            className="input is-rounded"
           />
          </div>
           
@@ -66,7 +66,7 @@ export default function Login() {
             name="pass"
             value={loginAttempt.pass}
             onChange={handleInputChange}
-            className="input is-small is-rounded"
+            className="input is-rounded"
           />
           </div>
           </div>
@@ -80,9 +80,8 @@ export default function Login() {
           </div>
           <div className="control">
           <button
-            className="button is-primary is-small is-rounded"
+            className="button is-primary is-rounded is-fullwidth"
             type="submit"
-            
             onClick={()=>handleSubmit(loginAttempt)}
           >Login</button>
           </div>  
