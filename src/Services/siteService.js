@@ -13,10 +13,16 @@ const postSite = async (id, data) => {
 
 }
 
+const putSite = async (id, data) => {
+
+  return await http.put(`/rest/sites/${id}`, data)
+
+}
+
 const delSite = async (id, data) => {
 
   return await http.delete(`/rest/sites`, data)
 
 }
 
-export default {getSite, postSite, delSite}
+export default {getSite, postSite, putSite, delSite}
