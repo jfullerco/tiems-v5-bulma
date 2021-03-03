@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
+import siteService from '../../Services/siteService'
 
 const EditSiteModal = ({siteDetails, modalState}) => {
 
@@ -24,7 +25,16 @@ const EditSiteModal = ({siteDetails, modalState}) => {
   }
 
   const patchSite = async () => {
-    
+    const id = site._id
+    const data = {
+    site_name: site.site_name,
+    site_add1: site.site_add1,
+    site_add2: site.site_add2,
+    site_city: site.site_city,
+    site_state: site.site_state,
+    site_zip: site.site_zip, 
+    _id: site._id
+    }
     const response = await siteService.putSite(id, site)
     setToggleModal(false)
   }

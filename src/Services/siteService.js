@@ -15,7 +15,7 @@ const postSite = async (id, data) => {
 
 const putSite = async (id, data) => {
 
-  return await http.put(`/rest/sites/${id}`, site)
+  return await http.put(`/rest/sites/${id}`, data)
 
 }
 
