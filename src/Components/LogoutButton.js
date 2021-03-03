@@ -11,8 +11,10 @@ const LogoutButton = () => {
 
   return (
     <div className="navbar" role="navigation" aria-label="main navigation">
-    <div className="navbar-brand"></div>
-    <div className="navbar-menu">
+    <div className="navbar-brand">
+    </div>
+
+    <div className="navbar-menu is-fixed-top" aria-label="" id="tiemsNavbar">
       
       <div className="navbar-start">
         <div className="navbar-item">TIEMS</div>

@@ -43,7 +43,7 @@ console.log()
             <td>{asset.asset_Status}</td>
           </tr>
         )) : (
-          "Assets loading"
+          <tr><td>Assets loading</td></tr>
         )}
         
         </tbody>
