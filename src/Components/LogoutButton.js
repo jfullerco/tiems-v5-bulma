@@ -1,30 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link, Redirect} from 'react-router-dom'
 import {stateContext} from '../stateContext'
 
 const LogoutButton = () => {
-  const userContext = React.useContext(stateContext)
 
+  const userContext = React.useContext(stateContext)
+  const [isActive, setIsActive] = useState(false)
   const logOut = () => {
     localStorage.removeItem('LoggedIn')
   }
 
   return (
-    <div className="navbar" role="navigation" aria-label="main navigation">
+    <div className="navbar is-transparent" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
-    </div>
 
-    <div className="navbar-menu is-fixed-top" aria-label="" id="tiemsNavbar">
-      
-      <div className="navbar-start">
         <div className="navbar-item">TIEMS</div>
-      </div>
+      
+    
+    
 
+    <a
+          onClick={() => {
+            setIsActive(!isActive)
+          }}
+          role='button'
+          className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+          aria-label='menu'
+          aria-expanded='false'
+          data-target='tiemsNavbar'
+        >
+          <span aria-hidden='true'></span>
+          <span aria-hidden='true'></span>
+          <span aria-hidden='true'></span>
+        </a>
+      
+      <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} aria-label='menu' id='tiemsNavbar'>
+      
       <div className="navbar-end">  
             <Link to="/" className="navbar-item">Dashboard</Link>
             <Link to="/" onClick={logOut} className="navbar-item">Logout</Link>
       </div>
-
+    </div>
     </div>
     </div>
     
