@@ -22,7 +22,7 @@ export default function App() {
       <Router>
       <div className="container is-fluid"> 
       <div className="column is-three-fifths is-offset-one-fifth">
-        <LogoutButton />
+      <LogoutButton />
         
           <Switch>
             
