@@ -20,6 +20,7 @@ const EditSiteModal = ({siteDetails, modalState}) => {
   }
 
   const handleChange = (e) => {
+    e.preventDefault()
     const {name, value} = e.target
     setSite({...site, [name]: value})
   }
@@ -38,8 +39,6 @@ const EditSiteModal = ({siteDetails, modalState}) => {
     const response = await siteService.putSite(id, site)
     setToggleModal(false)
   }
-
-  console.log(siteDetails)
 
   return (
     <div className={toggleModal != true ? "modal" : "modal is-active"}>
