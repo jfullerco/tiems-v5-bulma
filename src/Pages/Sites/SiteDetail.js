@@ -6,28 +6,16 @@ import siteService from '../../Services/siteService'
 //Components
 import LogoutButton from '../../Components/LogoutButton'
 import AssetList from '../Assets/AssetList'
+import EditSiteModal from './EditSiteModal'
 
 const SiteDetail = () => {
   
   const {id} = useParams()
 
   const [toggleModal, setToggleModal] = useState(false)
-  const [patchSiteData, setPatchSiteData] = useState({
-    site_name: "",
-    site_add1: "",
-    site_add2: "",
-    site_city: "",
-    site_state: "",
-    site_zip: "",
-  })
 
   const toggleEditModal = () => {
     setToggleModal(!toggleModal)
-  }
-
-  const handleChange = (e) => {
-    const {name, value} = e.target
-    setPatchSiteData({...patchSiteData, [name]: value})
   }
   
   const patchSite = async () => {
@@ -47,6 +35,7 @@ const SiteDetail = () => {
   useEffect(() => {
     console.log(id)
   }, [patchSite])
+
 
   const userContext = useContext(stateContext)
   
@@ -89,74 +78,7 @@ const SiteDetail = () => {
                    {siteDetails.site_city} {siteDetails.site_state}, {siteDetails.site_zip} 
                   <div className="button is-rounded is-small" onClick={toggleEditModal}>edit</div>
                   
-                  <div className={toggleModal != true ? "modal" : "modal is-active"}>
-                    <div className="modal-background"></div>
-                      <div className="modal-content">
-                        <div className="card">
-                        <div className="card-header"><div className="card-header-title">Update Site Details</div></div>
-                          <div className="card-content">
-
-                            <div className="label">Site Name</div>
-                            <input 
-                              className="input is-small is-rounded" 
-                              type="text"
-                              name="site_name"
-                              value={patchSiteData.site_name}
-                              onChange={handleChange}
-                              defaultValue={siteDetails.site_name}
-                              />
-                              <div className="label">Address 1</div>
-                              <input 
-                              className="input is-small is-rounded" 
-                              type="text"
-                              name="site_add1"
-                              value={patchSiteData.site_add1}
-                              onChange={handleChange}
-                              defaultValue={siteDetails.site_add1}
-                              />
-                              <div className="label">Address 2</div>
-                              <input 
-                              className="input is-small is-rounded" 
-                              type="text"
-                              name="site_add2"
-                              value={patchSiteData.site_add2}
-                              onChange={handleChange}
-                              defaultValue={siteDetails.site_add2}
-                              />
-                              <div className="label">City</div>
-                              <input 
-                              className="input is-small is-rounded" 
-                              type="text"
-                              name="site_city"
-                              value={patchSiteData.site_city}
-                              onChange={handleChange}
-                              defaultValue={siteDetails.site_city}
-                              />
-                              <div className="label">State</div>
-                              <input 
-                              className="input is-small is-rounded" 
-                              type="text"
-                              name="site_state"
-                              value={patchSiteData.site_state}
-                              onChange={handleChange}
-                              defaultValue={siteDetails.site_state}
-                              />
-                              <div className="label">Zip</div>
-                              <input 
-                              className="input is-small is-rounded" 
-                              type="text"
-                              name="site_zip"
-                              value={patchSiteData.site_zip}
-                              onChange={handleChange}
-                              defaultValue={siteDetails.site_zip}
-                              />
-                              <div className="button is-info is-small is-rounded" onClick={patchSite}>Save</div>
-
-                          </div>
-                        </div>
-                      </div>
-                    <button className="modal-close is-large" aria-label="close" onClick={toggleEditModal}></button>
-                  </div>
+                    {toggleModal === true ? <EditSiteModal siteDetails={siteDetails} /> : ""}
 
                   </td>
                   </tr>

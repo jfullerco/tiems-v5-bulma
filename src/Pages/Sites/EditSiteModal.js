@@ -1,24 +1,105 @@
 import React, { useState, useEffect, useContext } from 'react'
 
-const EditSiteModal = ({siteDetails}) => {
-  const [editSite, setEditSite] = useState({
-    site_name: "",
-    site_add1: "",
-    site_add2: "",
-    site_city: "",
-    site_state: "",
-    site_zip: "", 
-    _parent_id: ""
+const EditSiteModal = ({siteDetails, modalState}) => {
+
+  const [site, setSite] = useState({
+    site_name: siteDetails.site_name,
+    site_add1: siteDetails.site_add1,
+    site_add2: siteDetails.site_add2,
+    site_city: siteDetails.site_city,
+    site_state: siteDetails.site_state,
+    site_zip: siteDetails.site_zip, 
+    _id: siteDetails._id
   })
+
+  const [toggleModal, setToggleModal] = useState(true)
+
+  const toggleModalClose = () => {
+    setToggleModal(false)
+  }
+
+  const handleChange = (e) => {
+    const {name, value} = e.target
+    setSite({...site, [name]: value})
+  }
+
+  const patchSite = async () => {
+    
+    const response = await siteService.putSite(id, site)
+    setToggleModal(false)
+  }
+
   console.log(siteDetails)
+
   return (
-    <div className="modal">
-    <div className="modal-background"></div>
-      <div className="modal-content">
-      {siteDetails.site_name}
-      </div>
-    <button className="modal-close is-large" aria-label="close"></button>
-    </div>
+    <div className={toggleModal != true ? "modal" : "modal is-active"}>
+                    <div className="modal-background"></div>
+                      <div className="modal-content">
+                        <div className="card">
+                        <div className="card-header"><div className="card-header-title">Update Site Details</div></div>
+                          <div className="card-content">
+
+                            <div className="label">Site Name</div>
+                            <input 
+                              className="input is-small is-rounded" 
+                              type="text"
+                              name="site_name"
+                              value={site.site_name}
+                              onChange={handleChange}
+                              
+                              />
+                              <div className="label">Address 1</div>
+                              <input 
+                              className="input is-small is-rounded" 
+                              type="text"
+                              name="site_add1"
+                              value={site.site_add1}
+                              onChange={handleChange}
+                              
+                              />
+                              <div className="label">Address 2</div>
+                              <input 
+                              className="input is-small is-rounded" 
+                              type="text"
+                              name="site_add2"
+                              value={site.site_add2}
+                              onChange={handleChange}
+                              
+                              />
+                              <div className="label">City</div>
+                              <input 
+                              className="input is-small is-rounded" 
+                              type="text"
+                              name="site_city"
+                              value={site.site_city}
+                              onChange={handleChange}
+                              
+                              />
+                              <div className="label">State</div>
+                              <input 
+                              className="input is-small is-rounded" 
+                              type="text"
+                              name="site_state"
+                              value={site.site_state}
+                              onChange={handleChange}
+                              
+                              />
+                              <div className="label">Zip</div>
+                              <input 
+                              className="input is-small is-rounded" 
+                              type="text"
+                              name="site_zip"
+                              value={site.site_zip}
+                              onChange={handleChange}
+                              
+                              />
+                              <div className="button is-info is-small is-rounded" onClick={patchSite}>Save</div>
+
+                          </div>
+                        </div>
+                      </div>
+                    <button className="modal-close is-large" aria-label="close" onClick={toggleModalClose}></button>
+                  </div>
   )
 }
 export default EditSiteModal
