@@ -54,7 +54,7 @@ export default function Login() {
       </div>
 
       <div className="columns is-mobile is-centered">    
-      <div className="column is-half">
+      <div className="column is-half-widescreen">
       <div className="block">    
         <div className="field">
           <div className="control">
