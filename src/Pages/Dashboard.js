@@ -4,6 +4,7 @@ import {stateContext} from '../stateContext'
 
 import getClient from '../Services/clientService'
 import LogoutButton from '../Components/LogoutButton'
+import ClientList from './Client/ClientList'
 
 import Login from './Login'
 
@@ -30,12 +31,6 @@ const Dashboard = () => {
     
   }
 
-  const getUser = async (userID) => {
-    userContext.setUserData({
-      clients: data.clients
-    })
-  }
-
 console.log(userContext)
   return (  
     <>  
@@ -49,7 +44,7 @@ console.log(userContext)
         </div>
         </section>
         </div>
-        
+        <ClientList />
         <div className="block">
         <p />
           <Switch>

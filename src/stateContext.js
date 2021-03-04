@@ -9,7 +9,7 @@ export const StateProvider = (props) => {
     const [clientLoggedIn, setClientLoggedIn] = useState(false)
     
     const [userData, setUserData] = useState({
-      clients: []
+      
     })
 
     const [sessionData, setSessionData] = useState({

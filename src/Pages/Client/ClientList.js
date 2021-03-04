@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Link, Switch} from 'react-router-dom'
 
-import stateContext from '../../stateContext'
+import {stateContext} from '../../stateContext'
 
 const ClientList = () => {
   
@@ -13,9 +13,12 @@ const ClientList = () => {
 
   return (
     <div>
-    {clients != !clients ? clients.map(client => (
-      <div className="button" key={client._id}>{client.client_name}</div>
-    ))}
+      {clients != undefined ? clients.map(client => (
+      <div className="button is-rounded" key={client._id}>{client.client_name}</div>
+    )) : (
+      "No Clients Assigned"
+    )}
     </div>
   )
 }
+export default ClientList
