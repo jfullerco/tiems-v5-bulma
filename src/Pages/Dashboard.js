@@ -4,8 +4,6 @@ import {stateContext} from '../stateContext'
 
 import getClient from '../Services/clientService'
 import LogoutButton from '../Components/LogoutButton'
-import AirtableTest from '../Testing/AirtableTest'
-
 
 import Login from './Login'
 
@@ -13,6 +11,7 @@ const Dashboard = () => {
   
   const userContext = useContext(stateContext)
   const clientID = localStorage.clientID
+  const userID = localStorage.userID
   
   useEffect(() => {
      
@@ -32,12 +31,12 @@ const Dashboard = () => {
   }
 
   const getUser = async (userID) => {
-    userContext.setSessionData({
+    userContext.setUserData({
       clients: data.clients
     })
   }
-  
-console.log(userContext.sessionData)
+
+console.log(userContext)
   return (  
     <>  
       {(localStorage.LoggedIn === "true") ? (  
