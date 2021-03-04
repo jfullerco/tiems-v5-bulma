@@ -20,7 +20,7 @@ export default function App() {
   return (
     <StateProvider>
       <Router>
-      <div className="container is-fluid"> 
+      <div className="container"> 
       <div className="column is-three-fifths is-offset-one-fifth">
       <LogoutButton />
         

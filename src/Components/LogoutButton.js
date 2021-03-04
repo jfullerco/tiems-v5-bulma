@@ -37,20 +37,14 @@ const LogoutButton = () => {
         id='tiemsNavbar'
       >
 
-      <div 
-        className="navbar-start"
-      >
+      <div className="navbar-end">
+
         <Link to="/" className="navbar-item">Dashboard</Link>
 
-        <Link to="/" 
-          onClick={logOut} 
-          className="navbar-item"
-        >Logout
+        <Link to="/" onClick={logOut} className="navbar-item">
+          Logout
         </Link>
 
-      </div>
-      <div className="navbar-end">  
-            
       </div>
     </div>
     
