@@ -9,15 +9,26 @@ const ClientList = () => {
 
   const {userData: {clients}} = userContext
 
-  console.log(clients)
+  const handleChange = (e) => {
+    const id = e.target.value
+    localStorage.setItem('clientID', id)
+    localStorage.setItem('clientChanged', id)
+  }
+  
 
   return (
-    <div>
-      {clients != undefined ? clients.map(client => (
-      <div className="button is-rounded" key={client._id}>{client.client_name}</div>
-    )) : (
-      "No Clients Assigned"
-    )}
+    <div className="control">
+    <div className="select is-rounded is-fullwidth">
+      <select onChange={handleChange}>
+        {clients != undefined ? clients.map(client => (
+          <option value={client._id} key={client._id}>
+            {client.client_name}
+          </option>
+        )) : (
+          "No Clients Assigned"
+        )}
+      </select>
+    </div>
     </div>
   )
 }

@@ -12,13 +12,15 @@ const Dashboard = () => {
   
   const userContext = useContext(stateContext)
   const clientID = localStorage.clientID
+  const clientChanged = localStorage.clientChanged
   const userID = localStorage.userID
-  
+
   useEffect(() => {
      
      getSession(clientID)
+     console.log(userContext.sessionData)
      
-  }, [])
+  }, []);
 
   const getSession = async (clientID) => {
     
@@ -30,8 +32,10 @@ const Dashboard = () => {
     })
     
   }
+  
 
-console.log(userContext)
+
+console.log(userContext.sessionData)
   return (  
     <>  
       {(localStorage.LoggedIn === "true") ? (  
@@ -44,11 +48,14 @@ console.log(userContext)
         </div>
         </section>
         </div>
-        <ClientList />
+        <div className="block">
+          <ClientList />
+        </div>
         <div className="block">
         <p />
           <Switch>
             <span>
+            
               <Link to="/sites">
                 <div className="button is-rounded">
                   Sites
