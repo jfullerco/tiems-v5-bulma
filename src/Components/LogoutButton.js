@@ -11,14 +11,11 @@ const LogoutButton = () => {
   }
 
   return (
-    <div className="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <div className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
 
-        <div className="navbar-item">TIEMS</div>
-      
+      <div className="navbar-item">TIEMS</div>
     
-    
-
     <a
           onClick={() => {
             setIsActive(!isActive)
@@ -33,15 +30,30 @@ const LogoutButton = () => {
           <span aria-hidden='true'></span>
           <span aria-hidden='true'></span>
         </a>
-      
-      <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} aria-label='menu' id='tiemsNavbar'>
-      
+      </div>
+      <div 
+        className={`navbar-menu ${isActive ? 'is-active' : ''}`}
+        aria-label='menu' 
+        id='tiemsNavbar'
+      >
+
+      <div 
+        className="navbar-start"
+      >
+        <Link to="/" className="navbar-item">Dashboard</Link>
+
+        <Link to="/" 
+          onClick={logOut} 
+          className="navbar-item"
+        >Logout
+        </Link>
+
+      </div>
       <div className="navbar-end">  
-            <Link to="/" className="navbar-item">Dashboard</Link>
-            <Link to="/" onClick={logOut} className="navbar-item">Logout</Link>
+            
       </div>
     </div>
-    </div>
+    
     </div>
     
   )
