@@ -3,9 +3,15 @@ import React, {useState, createContext} from 'react'
 export const stateContext = createContext({})
 
 export const StateProvider = (props) => {
+    
     const {Provider} = stateContext
-    const [clientLoggedIn, setClientLoggedIn] = useState(
-      false)
+    
+    const [clientLoggedIn, setClientLoggedIn] = useState(false)
+    
+    const [userData, setUserData] = useState({
+      clients: []
+    })
+
     const [sessionData, setSessionData] = useState({
       client_name: "",
       sites: [],
@@ -17,7 +23,9 @@ export const StateProvider = (props) => {
           clientLoggedIn, 
           setClientLoggedIn,
           sessionData, 
-          setSessionData
+          setSessionData,
+          userData,
+          setUserData
       }}>
         {props.children}
       </Provider>

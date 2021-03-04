@@ -19,9 +19,9 @@ const putSite = async (id, data) => {
 
 }
 
-const delSite = async (id, data) => {
+const delSite = async (id) => {
 
-  return await http.delete(`/rest/sites`, data)
+  return await http.delete(`/rest/sites/${id}`)
 
 }
 

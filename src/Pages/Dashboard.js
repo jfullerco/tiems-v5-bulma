@@ -30,6 +30,13 @@ const Dashboard = () => {
     })
     
   }
+
+  const getUser = async (userID) => {
+    userContext.setSessionData({
+      clients: data.clients
+    })
+  }
+  
 console.log(userContext.sessionData)
   return (  
     <>  

@@ -5,6 +5,7 @@ import {stateContext} from '../../stateContext'
 import siteService from '../../Services/siteService'
 //Components
 import LogoutButton from '../../Components/LogoutButton'
+import DeleteSiteButton from '../../Components/DeleteSiteButton'
 import AssetList from '../Assets/AssetList'
 import EditSiteModal from './EditSiteModal'
 
@@ -77,6 +78,7 @@ const SiteDetail = () => {
                    {siteDetails.site_add2}<br />
                    {siteDetails.site_city} {siteDetails.site_state}, {siteDetails.site_zip} 
                   <div className="button is-rounded is-small" onClick={toggleEditModal}>edit</div>
+                  <DeleteSiteButton id={siteDetails._id} />
                   
                     {toggleModal === true ? <EditSiteModal siteDetails={siteDetails} /> : ""}
 
