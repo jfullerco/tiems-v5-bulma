@@ -21,7 +21,7 @@ const SiteList = () => {
     <div className="block">
     
     <div className="block">
-    
+
       <div className="button is-rounded is-small">
         <Link to="/addSite">Add Site</Link>
       </div>
