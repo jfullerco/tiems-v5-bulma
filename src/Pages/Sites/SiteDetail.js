@@ -43,9 +43,6 @@ const SiteDetail = () => {
   const {sessionData: {sites}} = userContext
   
   const siteDetails = sites.find((site) => site._id === id) 
-
-  
-  
   
   console.log(siteDetails)
   
@@ -78,6 +75,7 @@ const SiteDetail = () => {
                    {siteDetails.site_add2}<br />
                    {siteDetails.site_city} {siteDetails.site_state}, {siteDetails.site_zip} 
                   <div className="button is-rounded is-small" onClick={toggleEditModal}>edit</div>
+
                   <DeleteSiteButton id={id} />
                   
                     {toggleModal === true ? <EditSiteModal siteDetails={siteDetails} /> : ""}
