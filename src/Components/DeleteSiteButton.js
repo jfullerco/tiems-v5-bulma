@@ -9,7 +9,7 @@ const DeleteSiteButton = ({id}) => {
   const deleteEntry = () => {
     console.log(localStorage.clientID)
     siteService.delSite(id)
-    refreshSite(clientID)
+    refreshSite.getSessionData(clientID)
     history.push("/sites")
   }
 
