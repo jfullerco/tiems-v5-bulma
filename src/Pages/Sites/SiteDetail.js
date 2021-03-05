@@ -78,7 +78,7 @@ const SiteDetail = () => {
                    {siteDetails.site_add2}<br />
                    {siteDetails.site_city} {siteDetails.site_state}, {siteDetails.site_zip} 
                   <div className="button is-rounded is-small" onClick={toggleEditModal}>edit</div>
-                  <DeleteSiteButton id={siteDetails._id} />
+                  <DeleteSiteButton id={id} />
                   
                     {toggleModal === true ? <EditSiteModal siteDetails={siteDetails} /> : ""}
 
