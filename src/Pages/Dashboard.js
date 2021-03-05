@@ -11,31 +11,10 @@ import Login from './Login'
 const Dashboard = () => {
   
   const userContext = useContext(stateContext)
-  const clientID = localStorage.clientID
-  const clientChanged = localStorage.clientChanged
+  
   const userID = localStorage.userID
-
-  useEffect(() => {
-     
-     getSession(clientID)
-     console.log(userContext.sessionData)
-     
-  }, []);
-
-  const getSession = async (clientID) => {
-    
-    const {data} = await getClient(clientID)
-    userContext.setSessionData({
-      client_name: data.client_name,
-      sites: data.sites,
-      _id: data._id
-    })
-    
-  }
   
 
-
-console.log(userContext.sessionData)
   return (  
     <>  
       {(localStorage.LoggedIn === "true") ? (  

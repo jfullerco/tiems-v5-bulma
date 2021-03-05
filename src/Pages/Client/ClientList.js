@@ -1,20 +1,30 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {Link, Switch} from 'react-router-dom'
+import getClient from '../../Services/clientService'
 
 import {stateContext} from '../../stateContext'
 
 const ClientList = () => {
   
   const userContext = useContext(stateContext)
-
   const {userData: {clients}} = userContext
-
-  const handleChange = (e) => {
-    const id = e.target.value
-    localStorage.setItem('clientID', id)
-    localStorage.setItem('clientChanged', id)
-  }
   
+  const [clientID, setClientID] = useState(clients)
+  
+  console.log(name)
+  const getSession = async (clientID) => {
+    
+    const {data} = await getClient(clientID)
+    userContext.setSessionData({
+      client_name: data.client_name,
+      sites: data.sites,
+      _id: data._id
+    })
+  }
+  const handleChange = (e) => {
+    setClientID(e.target.value)
+    getSession(clientID)
+  }
 
   return (
     <div className="control">
