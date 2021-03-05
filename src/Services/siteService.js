@@ -21,7 +21,7 @@ const putSite = async (id, data) => {
 
 const delSite = async (id) => {
 
-  return await http.delete(`/rest/sites`, id)
+  return await http.delete(`/rest/sites/${id}`)
 
 }
 

@@ -1,12 +1,16 @@
 import React from 'react'
-import {Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import siteService from '../Services/siteService'
+import refreshSite from '../Services/refreshSite'
 
-const DeleteSiteButton = (id) => {
-
-  const deleteEntry = (id) => {
-    console.log(id)
+const DeleteSiteButton = ({id}) => {
+  const history = useHistory()
+  const clientID = localStorage.clientID
+  const deleteEntry = () => {
+    console.log(localStorage.clientID)
     siteService.delSite(id)
+    refreshSite(clientID)
+    history.push("/sites")
   }
 
   return (

@@ -29,6 +29,7 @@ const ClientList = () => {
 
   const handleChange = (e) => {
     setClientID(e.target.value)
+    localStorage.setItem('clientID', e.target.value)
     setClientChanged(!clientChanged)
     setLoadingData(true)
   }
