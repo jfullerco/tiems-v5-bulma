@@ -1,7 +1,7 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
 import siteService from '../Services/siteService'
-import refreshSite from '../Services/refreshSite'
+import getSessionData from '../Services/refreshSite'
 
 const DeleteSiteButton = ({id}) => {
   const history = useHistory()
@@ -9,7 +9,7 @@ const DeleteSiteButton = ({id}) => {
   const deleteEntry = () => {
     console.log(localStorage.clientID)
     siteService.delSite(id)
-    refreshSite.getSessionData(clientID)
+    getSessionData(clientID)
     history.push("/sites")
   }
 

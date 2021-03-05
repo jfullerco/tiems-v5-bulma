@@ -2,9 +2,10 @@ import React, {useContext} from 'react'
 import {stateContext} from '../stateContext'
 import getClient from './clientService'
 
-const refreshSite = (clientID) => {
-  const userContext = useContext(stateContext)
+
+  
   const getSessionData = async (clientID) => {
+    const userContext = useContext(stateContext)
     const {data} = await getClient(clientID)
       userContext.setSessionData({
         client_name: data.client_name,
@@ -12,6 +13,5 @@ const refreshSite = (clientID) => {
         _id: data._id
       })
     }
-    return {getSessionData}
-  }
-  export default refreshSite
+  
+  export default getSessionData
