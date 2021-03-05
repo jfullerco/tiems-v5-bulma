@@ -21,27 +21,26 @@ const Dashboard = () => {
       <> 
        <div className="block"> 
         <section className="hero is-info">
-        <div className="hero-body">
-          <p className="title">Dashboard</p>
-        <div className="subtitle"></div>
-        </div>
+          <div className="hero-body">
+            <p className="title">Dashboard</p>
+            <div className="subtitle"></div>
+          </div>
         </section>
-        </div>
-        <div className="block">
-          <ClientList />
-        </div>
-        <div className="block">
+      </div>
+      <div className="block">
+        <ClientList />
+      </div>
+      <div className="block">
         <p />
-          <Switch>
-            <span>
-            
-              <Link to="/sites">
-                <div className="button is-rounded">
-                  Sites
-                </div>
-              </Link>
-            </span>
-          </Switch>
+        <Switch>
+          <span>
+            <Link to="/sites">
+              <div className="button is-rounded">
+                Sites
+              </div>
+            </Link>
+          </span>
+        </Switch>
         </div>
       </>
 

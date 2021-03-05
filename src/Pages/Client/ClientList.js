@@ -9,9 +9,12 @@ const ClientList = () => {
   const userContext = useContext(stateContext)
   const {userData: {clients}} = userContext
   
-  const [clientID, setClientID] = useState(clients)
+  const [clientID, setClientID] = useState("")
   
-  console.log(name)
+  useEffect(() => {
+    setClientID(userContext.userData.clients != undefined ? userContext.userData.clients[0]._id : "")
+  }, [])
+  
   const getSession = async (clientID) => {
     
     const {data} = await getClient(clientID)
@@ -21,6 +24,7 @@ const ClientList = () => {
       _id: data._id
     })
   }
+
   const handleChange = (e) => {
     setClientID(e.target.value)
     getSession(clientID)
