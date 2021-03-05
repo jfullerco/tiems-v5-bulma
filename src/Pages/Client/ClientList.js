@@ -9,12 +9,12 @@ const ClientList = () => {
   const userContext = useContext(stateContext)
   const {userData: {clients}} = userContext
   
-  const [clientID, setClientID] = useState("")
+  const [clientID, setClientID] = useState()
   
   useEffect(() => {
     setClientID(userContext.userData.clients != undefined ? userContext.userData.clients[0]._id : "")
-  }, [])
-  
+  })
+  console.log(clientID)
   const getSession = async (clientID) => {
     
     const {data} = await getClient(clientID)
