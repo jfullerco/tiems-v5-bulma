@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import {Link, Switch} from 'react-router-dom'
+import {Link, Switch, useHistory} from 'react-router-dom'
 import getClient from '../../Services/clientService'
 
 import {stateContext} from '../../stateContext'
@@ -8,15 +8,14 @@ const ClientList = () => {
   
   const userContext = useContext(stateContext)
   const {userData: {clients}} = userContext
-  
-  const [clientID, setClientID] = useState()
+  const history = useHistory()
+  const [clientID, setClientID] = useState(localStorage.clientID)
   
   useEffect(() => {
-    setClientID(userContext.userData.clients != undefined ? userContext.userData.clients[0]._id : "")
-  })
-  console.log(clientID)
-  const getSession = async (clientID) => {
-    
+    getSession(clientID)
+  }, [])  
+  
+  const getSession = async () => {
     const {data} = await getClient(clientID)
     userContext.setSessionData({
       client_name: data.client_name,
@@ -27,13 +26,21 @@ const ClientList = () => {
 
   const handleChange = (e) => {
     setClientID(e.target.value)
-    getSession(clientID)
+  }
+  
+  useEffect(() => {
+      getSession(clientID)
+  }, [handleChange])
+
+  const handleSubmit = () => {
+    history.push("/sites")
   }
 
   return (
-    <div className="control">
-    <div className="select is-rounded is-fullwidth">
-      <select onChange={handleChange}>
+    <div className="field has-addons has-addons-centered">
+    <div className="control is-expanded">
+      <div className="select is-rounded is-fullwidth" onChange={handleChange}>
+      <select>
         {clients != undefined ? clients.map(client => (
           <option value={client._id} key={client._id}>
             {client.client_name}
@@ -41,8 +48,13 @@ const ClientList = () => {
         )) : (
           "No Clients Assigned"
         )}
-      </select>
-    </div>
+        </select>
+      </div>
+      </div>
+      <div className="control">
+      <button className="button is-rounded is-info" onClick={handleSubmit}>choose</button>
+      </div>
+    
     </div>
   )
 }

@@ -21,7 +21,7 @@ export default function Login() {
         login.tiemsUser == user && login.tiemsPass == pass ? 
           (
             userContext.setClientLoggedIn(true),
-            localStorage.setItem('clientID', login._parent_id),
+            localStorage.setItem('clientID', login.clients[0]._id),
             localStorage.setItem('userID', login._id),
             userContext.setUserData({clients: login.clients}),
             localStorage.setItem('LoggedIn', "true"),
