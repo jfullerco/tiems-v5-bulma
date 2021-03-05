@@ -40,20 +40,22 @@ const ClientList = () => {
     <div className="field has-addons has-addons-centered">
     <div className="control is-expanded">
       <div className="select is-rounded is-fullwidth" onChange={handleChange}>
-      <select>
-        {clients != undefined ? clients.map(client => (
-          <option value={client._id} key={client._id}>
-            {client.client_name}
-          </option>
-        )) : (
-          "No Clients Assigned"
-        )}
+        <select>
+          {clients != undefined ? clients.map(client => (
+            <option value={client._id} key={client._id}>
+              {client.client_name}
+            </option>
+          )) : (
+            "No Clients Assigned"
+          )}
         </select>
       </div>
       </div>
-      <div className="control">
-      <button className="button is-rounded is-info" onClick={handleSubmit}>choose</button>
-      </div>
+        <div className="control">
+          <button className="button is-rounded is-info" onClick={handleSubmit}>
+            choose
+          </button>
+        </div>
     
     </div>
   )
