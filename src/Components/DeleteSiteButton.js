@@ -1,16 +1,22 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {useHistory} from 'react-router-dom'
+import {stateContext} from '../stateContext'
 import siteService from '../Services/siteService'
-import getSessionData from '../Services/refreshSite'
+import refreshSite from '../Services/refreshSite'
+
 
 const DeleteSiteButton = ({id}) => {
   const history = useHistory()
   const clientID = localStorage.clientID
-  const deleteEntry = () => {
+  const userContext = useContext(stateContext)
+  const deleteEntry = async () => {
     console.log(localStorage.clientID)
     siteService.delSite(id)
-    getSessionData(clientID)
-    history.push("/sites")
+    const {data} = await refreshSite(clientID)
+      userContext.setSessionData({
+        sites: data.sites
+      })
+      history.push("/sites")
   }
 
   return (
