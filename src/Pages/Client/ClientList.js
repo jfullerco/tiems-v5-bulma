@@ -10,6 +10,8 @@ const ClientList = () => {
   const {userData: {clients}} = userContext
   const history = useHistory()
   const [clientID, setClientID] = useState(localStorage.clientID)
+  const [clientChanged, setClientChanged] = useState(false)
+  const [loadingData, setLoadingData] = useState(false)
   
   useEffect(() => {
     getSession(clientID)
@@ -22,15 +24,18 @@ const ClientList = () => {
       sites: data.sites,
       _id: data._id
     })
+    setLoadingData(false)
   }
 
   const handleChange = (e) => {
     setClientID(e.target.value)
+    setClientChanged(!clientChanged)
+    setLoadingData(true)
   }
   
   useEffect(() => {
       getSession(clientID)
-  }, [handleChange])
+  }, [clientChanged])
 
   const handleSubmit = () => {
     history.push("/sites")
@@ -52,9 +57,15 @@ const ClientList = () => {
       </div>
       </div>
         <div className="control">
-          <button className="button is-rounded is-info" onClick={handleSubmit}>
+        {
+          loadingData != false ? 
+          <button className="button is-rounded is-info is-loading" onClick={handleSubmit}>  
             choose
-          </button>
+          </button> 
+          : 
+          <button className="button is-rounded is-info" onClick={handleSubmit}> 
+            choose
+          </button>}
         </div>
     
     </div>
