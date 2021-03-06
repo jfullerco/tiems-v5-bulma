@@ -15,5 +15,10 @@ export default (state, action) => {
         ...state,
         sites: action.payload
       };
+    case "GET_ASSETS":
+      return {
+        ...state,
+        assets: action.payload
+      };
   }
 }
