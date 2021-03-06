@@ -1,4 +1,5 @@
-import React, {useState, createContext} from 'react'
+import React, {useState, createContext, useReducer} from 'react'
+import stateReducer from './stateReducer'
 
 export const stateContext = createContext({})
 
@@ -17,6 +18,28 @@ export const StateProvider = (props) => {
       sites: [],
       _id: ""
     }) 
+    const initialState = {
+      userID: "",
+      clients: {},
+      inFocusClient: "",
+      sites: {},
+      inFocusSite: "",
+      assets: {},
+      inFocusAsset: "",
+      tickets: {},
+      inFocusTicket: ""
+
+    }
+    const [userSession, dispatch] = useReducer(stateReducer, initialState)
+
+      const setUser = (id) => {
+        dispatch({
+          type: "SET_USER",
+          payload: id
+        })
+      }
+
+
     
     return (
       <Provider value={{
@@ -25,7 +48,9 @@ export const StateProvider = (props) => {
           sessionData, 
           setSessionData,
           userData,
-          setUserData
+          setUserData,
+          setUser,
+          userSession
       }}>
         {props.children}
       </Provider>

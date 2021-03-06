@@ -13,7 +13,7 @@ const Dashboard = () => {
   const userContext = useContext(stateContext)
   
   const userID = localStorage.userID
-  
+  console.log(userContext)
 
   return (  
     <>  
