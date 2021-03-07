@@ -41,9 +41,11 @@ const LogoutButton = () => {
 
         <Link to="/" className="navbar-item">Dashboard</Link>
 
-        <Link to="/" onClick={logOut} className="navbar-item">
+        {localStorage.LoggedIn === "true" ? (<Link to="/" onClick={logOut} className="navbar-item">
           Logout
-        </Link>
+        </Link>)
+        :
+        (<Link to="/login" className="navbar-item" >Login</Link>)}
 
       </div>
     </div>
