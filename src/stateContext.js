@@ -1,6 +1,6 @@
 import React, {useState, createContext, useReducer} from 'react'
 import stateReducer from './stateReducer'
-import serviceReducer from './Services/serviceReducer'
+
 
 export const stateContext = createContext({})
 
@@ -29,7 +29,8 @@ export const StateProvider = (props) => {
       assets: {},
       inFocusAsset: "",
       tickets: {},
-      inFocusTicket: ""
+      inFocusTicket: "",
+      dataLoading: false
 
     }
     const [userSession, dispatch] = useReducer(stateReducer, initialState)
@@ -41,15 +42,12 @@ export const StateProvider = (props) => {
         })
       }
 
-    const initialSWState = {}
-    const [serviceWorker, dispatchSW] = useReducer(serviceReducer, initialSWState)
-
-    const getUser = (user) => {
-      dispatch({
-        type: "GET_USER",
-        payload: user
-      })
-    }
+      const setClients = (id) => {
+        dispatch({
+          type: "SET_CLIENTS",
+          payload: id
+        })
+      }
 
     
     return (
@@ -61,9 +59,7 @@ export const StateProvider = (props) => {
           userData,
           setUserData,
           setUser,
-          userSession,
-          getUser,
-          serviceWorker
+          userSession
       }}>
         {props.children}
       </Provider>
