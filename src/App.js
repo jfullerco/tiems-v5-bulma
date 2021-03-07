@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
 
 import {StateProvider, stateContext} from './stateContext'
-
+import Hello from './Pages/Hello'
 import Dashboard from './Pages/Dashboard'
 import Login from './Pages/Login'
 import SiteList from './Pages/Sites/SiteList'
@@ -26,7 +26,8 @@ export default function App() {
         
           <Switch>
             
-            <Route exact path="/"  component={Dashboard} />
+            <Route exact path="/"  component={Hello} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/login" component={Login} />
             <Route exact path="/sites" component={SiteList} />
             <Route path="/sites/:id" component={SiteDetail} />

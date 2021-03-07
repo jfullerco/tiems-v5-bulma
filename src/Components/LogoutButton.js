@@ -14,7 +14,7 @@ const LogoutButton = () => {
     <div className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
 
-      <div className="navbar-item">TIEMS</div>
+      <div className="navbar-item">MIEMS</div>
     
     <a
           onClick={() => {
