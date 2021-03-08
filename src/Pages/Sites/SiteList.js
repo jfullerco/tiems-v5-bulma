@@ -6,7 +6,7 @@ const SiteList = () => {
   
   const userContext = useContext(stateContext)
   const {sessionData: {sites}} = userContext
-    
+    console.log(userContext.userSession.sites.length)
   return (
     <>
     <div className="block"> 

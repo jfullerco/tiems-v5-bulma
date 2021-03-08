@@ -7,7 +7,7 @@ const LogoutButton = () => {
   const userContext = React.useContext(stateContext)
   const [isActive, setIsActive] = useState(false)
   const logOut = () => {
-    localStorage.removeItem('LoggedIn')
+    userContext.setLoggedIn(false)
   }
 
   return (
@@ -41,7 +41,7 @@ const LogoutButton = () => {
 
         <Link to="/" className="navbar-item">Dashboard</Link>
 
-        {localStorage.LoggedIn === "true" ? (<Link to="/" onClick={logOut} className="navbar-item">
+        {userContext.loggedIn === true ? (<Link to="/" onClick={logOut} className="navbar-item">
           Logout
         </Link>)
         :

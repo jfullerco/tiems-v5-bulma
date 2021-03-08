@@ -15,11 +15,11 @@ const Dashboard = () => {
   const userID = localStorage.userID
   console.log(userContext)
 
-  console.log(userContext.userSession.sites.length)
+  
 
   return (  
     <>  
-      {(userContext.userSession.LoggedIn === true) ? (  
+      {(userContext.userSession.loggedIn === true) ? (  
       <> 
        <div className="block"> 
         <section className="hero is-info">

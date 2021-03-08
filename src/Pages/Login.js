@@ -25,7 +25,6 @@ export default function Login() {
             localStorage.setItem('userID', login._id),
             userContext.setUser(login._id),
             userContext.setUserData({clients: login.clients}),
-            localStorage.setItem('LoggedIn', "true"),
             history.push("/dashboard")
              
           ) : (
