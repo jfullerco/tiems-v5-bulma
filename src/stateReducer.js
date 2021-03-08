@@ -10,6 +10,11 @@ export default (state, action) => {
         ...state,
         loggedIn: action.payload
       }
+    case "SET_USER_LEVEL":
+      return {
+        ...state,
+        userLevel: action.payload
+      }
     case "GET_CLIENTS": 
       return {
         ...state,

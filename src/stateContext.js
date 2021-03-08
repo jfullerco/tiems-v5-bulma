@@ -22,7 +22,9 @@ export const StateProvider = (props) => {
 
     const initialState = {
       userID: "",
+      userLevel: "",
       loggedIn: false,
+      clientID: "",
       clients: {},
       inFocusClient: "",
       sites: {},
@@ -50,6 +52,20 @@ export const StateProvider = (props) => {
         })
       }
 
+      const setUserLevel = (userLevel) => {
+        dispatch({
+          type: "SET_USER_LEVEL",
+          payload: userLevel
+        })
+      }
+
+      const setClientID = (id) => {
+        dispatch({
+          type: "SET_CLIENT_ID",
+          payload: id
+        })
+      }
+
       const setClients = (id) => {
         dispatch({
           type: "SET_CLIENTS",
@@ -68,6 +84,7 @@ export const StateProvider = (props) => {
           setUserData,
           setUser,
           setLoggedIn,
+          setClientID,
           userSession
       }}>
         {props.children}
