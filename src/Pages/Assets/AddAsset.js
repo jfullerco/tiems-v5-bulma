@@ -9,9 +9,11 @@ const AddAsset = () => {
     asset_ID: "",
     asset_Vendor: "",
     asset_Hostname: "",
-    site_city: "",
-    site_state: "", 
-    site_phone: "",
+    asset_Handoff: "",
+    asset_voice_Handoff: "", 
+    asset_Details: "",
+    asset_Type: "",
+    asset_Status: "",
     _parent_id: ""
   }
 
