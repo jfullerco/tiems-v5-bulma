@@ -5,6 +5,11 @@ export default (state, action) => {
         ...state,
         userID: action.payload
       }
+    case "LOGGED_IN":
+      return {
+        ...state,
+        loggedIn: action.payload
+      }
     case "GET_CLIENTS": 
       return {
         ...state,

@@ -22,6 +22,7 @@ export const StateProvider = (props) => {
 
     const initialState = {
       userID: "",
+      loggedIn: false,
       clients: {},
       inFocusClient: "",
       sites: {},
@@ -42,6 +43,13 @@ export const StateProvider = (props) => {
         })
       }
 
+      const setLoggedIn = () => {
+        dispatch({
+          type: "LOGGED_IN",
+          payload: true
+        })
+      }
+
       const setClients = (id) => {
         dispatch({
           type: "SET_CLIENTS",
@@ -59,6 +67,7 @@ export const StateProvider = (props) => {
           userData,
           setUserData,
           setUser,
+          setLoggedIn,
           userSession
       }}>
         {props.children}
