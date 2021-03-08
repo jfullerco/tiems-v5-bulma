@@ -17,7 +17,7 @@ const Dashboard = () => {
 
   return (  
     <>  
-      {(localStorage.LoggedIn === "true") ? (  
+      {(userContext.userSession.LoggedIn === true) ? (  
       <> 
        <div className="block"> 
         <section className="hero is-info">
