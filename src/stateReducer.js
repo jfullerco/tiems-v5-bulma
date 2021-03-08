@@ -19,11 +19,18 @@ export default (state, action) => {
       const inFocusSiteID = action.payload
       const inFocusSite = state.sites.map(site => {
         site._id === inFocusSiteID._id ? {site} : "No Site Details"
-      });
+      })
+      return inFocustSite;
     case "GET_ASSETS":
       return {
         ...state,
         assets: action.payload
       };
-  }
+    case "FOCUS_ASSET":
+      const inFocusAssetID = action.payload
+      const inFocusAsset = state.assets.map(asset => {
+        asset._id === inFocusAssetID._id ? {asset} : "No Asset Details"
+      })
+      return inFocusAsset;
+  };
 }
