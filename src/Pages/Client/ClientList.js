@@ -5,12 +5,19 @@ import getClient from '../../Services/clientService'
 import {stateContext} from '../../stateContext'
 
 const ClientList = () => {
+
   const history = useHistory()
+
   const userContext = useContext(stateContext)
+
   const {userSession: {clients}} = userContext
+
+  const initialClient = userContext.userSession.clients[0]._id
   
-  const [clientID, setClientID] = useState(localStorage.clientID)
+  const [clientID, setClientID] = useState(initialClient)
+
   const [clientChanged, setClientChanged] = useState(false)
+
   const [loadingData, setLoadingData] = useState(false)
   
   useEffect(() => {
@@ -30,7 +37,8 @@ const ClientList = () => {
 
   const handleChange = (e) => {
     setClientID(e.target.value)
-    localStorage.setItem('clientID', e.target.value)
+    const id = e.target.value
+    userContext.setClientID(id)
     setClientChanged(!clientChanged)
     setLoadingData(true)
   }
