@@ -41,35 +41,35 @@ export const StateProvider = (props) => {
           type: "SET_USER",
           payload: id
         })
-      }
+      };
 
       const setLoggedIn = () => {
         dispatch({
           type: "LOGGED_IN",
           payload: true
         })
-      }
+      };
 
       const setUserLevel = (userLevel) => {
         dispatch({
           type: "SET_USER_LEVEL",
           payload: userLevel
         })
-      }
+      };
 
       const setClientID = (id) => {
         dispatch({
           type: "SET_CLIENT_ID",
           payload: id
         })
-      }
+      };
 
       const setClients = (id) => {
         dispatch({
           type: "SET_CLIENTS",
           payload: id
         })
-      }
+      };
 
     
     return (

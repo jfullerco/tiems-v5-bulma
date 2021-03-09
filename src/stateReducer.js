@@ -9,7 +9,7 @@ export default (state, action) => {
       return {
         ...state,
         loggedIn: action.payload
-      }
+      };
     case "SET_USER_LEVEL":
       return {
         ...state,
