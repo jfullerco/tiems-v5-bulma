@@ -8,8 +8,6 @@ export const StateProvider = (props) => {
     
     const {Provider} = stateContext
     
-    const [clientLoggedIn, setClientLoggedIn] = useState(false)
-    
     const [userData, setUserData] = useState({
       
     })
@@ -75,9 +73,8 @@ export const StateProvider = (props) => {
 
     
     return (
-      <Provider value={{
-          clientLoggedIn, 
-          setClientLoggedIn,
+      <Provider value={{ 
+          
           sessionData, 
           setSessionData,
           userData,
@@ -85,6 +82,7 @@ export const StateProvider = (props) => {
           setUser,
           setLoggedIn,
           setClientID,
+          setClients,
           userSession
       }}>
         {props.children}

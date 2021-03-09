@@ -15,8 +15,6 @@ const Dashboard = () => {
   const userID = localStorage.userID
   console.log(userContext)
 
-  
-
   return (  
     <>  
       {(userContext.userSession.loggedIn === true) ? (  
