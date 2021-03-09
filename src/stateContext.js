@@ -23,7 +23,7 @@ export const StateProvider = (props) => {
       userLevel: "",
       loggedIn: false,
       clientID: "",
-      clients: {},
+      clients: "",
       inFocusClient: "",
       sites: {},
       inFocusSite: "",
@@ -31,7 +31,7 @@ export const StateProvider = (props) => {
       inFocusAsset: "",
       tickets: {},
       inFocusTicket: "",
-      dataLoading: false
+      dataLoading: false,
 
     }
     const [userSession, dispatch] = useReducer(stateReducer, initialState)
@@ -50,6 +50,13 @@ export const StateProvider = (props) => {
         })
       };
 
+      const setClients = (clients) => {
+        dispatch({
+          type: "SET_CLIENTS",
+          payload: clients
+        })
+      };
+
       const setUserLevel = (userLevel) => {
         dispatch({
           type: "SET_USER_LEVEL",
@@ -59,15 +66,15 @@ export const StateProvider = (props) => {
 
       const setClientID = (id) => {
         dispatch({
-          type: "SET_CLIENT_ID",
+          type: "FOCUS_CLIENT_ID",
           payload: id
         })
       };
 
-      const setClients = (id) => {
+      const setSites = (sites) => {
         dispatch({
-          type: "SET_CLIENTS",
-          payload: id
+          type: "SET_SITES",
+          payload: sites
         })
       };
 
@@ -81,8 +88,10 @@ export const StateProvider = (props) => {
           setUserData,
           setUser,
           setLoggedIn,
-          setClientID,
           setClients,
+          setUserLevel,
+          setClientID,
+          setSites,
           userSession
       }}>
         {props.children}

@@ -10,26 +10,30 @@ export default (state, action) => {
         ...state,
         loggedIn: action.payload
       };
-    case "SET_USER_LEVEL":
-      return {
-        ...state,
-        userLevel: action.payload
-      }
-    case "GET_CLIENTS": 
+    case "SET_CLIENTS":
       return {
         ...state,
         clients: action.payload
       };
-    case "GET_SITES": 
+    case "FOCUS_CLIENT_ID":
+      return {
+        ...state,
+        clientID: action.payload
+      };
+    case "SET_USER_LEVEL":
+      return {
+        ...state,
+        userLevel: action.payload
+      };
+    case "SET_SITES": 
       return {
         ...state,
         sites: action.payload
       };
-    case "GET_ASSETS":
+    case "SET_ASSETS":
       return {
         ...state,
         assets: action.payload
-      };
-    
+      };    
   };
 }

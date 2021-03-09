@@ -5,10 +5,10 @@ import getClient from '../../Services/clientService'
 import {stateContext} from '../../stateContext'
 
 const ClientList = () => {
-  
-  const userContext = useContext(stateContext)
-  const {userData: {clients}} = userContext
   const history = useHistory()
+  const userContext = useContext(stateContext)
+  const {userSession: {clients}} = userContext
+  
   const [clientID, setClientID] = useState(localStorage.clientID)
   const [clientChanged, setClientChanged] = useState(false)
   const [loadingData, setLoadingData] = useState(false)
@@ -24,6 +24,7 @@ const ClientList = () => {
       sites: data.sites,
       _id: data._id
     })
+    userContext.userSession.setSites(data.sites)
     setLoadingData(false)
   }
 

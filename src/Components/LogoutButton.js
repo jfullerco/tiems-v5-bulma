@@ -9,7 +9,7 @@ const LogoutButton = () => {
   const logOut = () => {
     userContext.setLoggedIn(false)
   }
-
+console.log(userContext)
   return (
     <div className="navbar" role="navigation" aria-label="main navigation">
     <div className="navbar-brand">
